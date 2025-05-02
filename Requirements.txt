@@ -1,0 +1,13 @@
+**Consolidated Requirement**
+
+Total and Current Balance: Display the up-to-date available balance on the main screen, updating with each transaction.
+Transaction History: Record every income or expense with amount, date, type (income/expense), and category.
+Expense Categories (CRUD): Allow users to create, read, update, and delete categories for classifying transactions.
+Transaction Descriptions: Each transaction must include a user-defined reason or description.
+Balance and Category Charts
+By Category: Pie charts for weekly, monthly, or yearly breakdowns.
+By Balance: Line or bar charts showing balance trends over time.
+Search Filters: Enable filtering by week, month, year, and optionally by half-month or half-year, including category-specific views.
+Transaction Confirmation: Show a confirmation message with transaction details before processing, especially for savings withdrawals.
+Savings Section: Let users organize savings by category and display motivational messages after deposits or withdrawals.
+Home and Login Page: Standard login page using email, with user data stored in files to support multiple users.
