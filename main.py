@@ -19,16 +19,16 @@ def saving_names(name, email, birthdate, gender, password, users):
 
 
 def validate_password(password):
-    valid = re.match(r"^[A-Za-z0-9*/-]{9,32}$", password)
+    valid = re.match(r"^[A-Za-z0-9*/_.]{9,32}$", password)
     while valid is None:
         print("Invalid password, try again")
         password = input("PASSWORD:")
-        valid = re.match(r"^[A-Za-z0-9*/-]{9,32}$", password)
+        valid = re.match(r"^[A-Za-z0-9*/_.]{9,32}$", password)
     return password
 
 
 def main():
-    users = []  # In a real app, this would be loaded from a file
+    users = []
     name = input("NAME: ").upper()
     email = input("EMAIL: ")
     birthdate = input("DD/MM/YYYY: ")
