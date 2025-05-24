@@ -1,0 +1,79 @@
+[
+    {
+        "AMOUNT": 500000,
+        "TYPE": "INCOME",
+        "CATEGORY": "UNIVERSITY",
+        "REASON": "SCHOLARSHIP DEPOSIT"
+    },
+    {
+        "AMOUNT": 120000,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "FOOD",
+        "REASON": "GROCERIES AT THE SUPERMARKET"
+    },
+    {
+        "AMOUNT": 60000,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "PERSONAL",
+        "REASON": "GYM MEMBERSHIP"
+    },
+    {
+        "AMOUNT": 20000,
+        "TYPE": "INCOME",
+        "CATEGORY": "FAMILY",
+        "REASON": "PARENTS' SUPPORT"
+    },
+    {
+        "AMOUNT": 15000,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "UNIVERSITY",
+        "REASON": "BOOKS AND MATERIALS"
+    },
+    {
+        "AMOUNT": 10000,
+        "TYPE": "SAVINGS",
+        "GOAL": "CAR"
+    },
+    {
+        "AMOUNT": 3000,
+        "TYPE": "INCOME",
+        "CATEGORY": "PERSONAL",
+        "REASON": "EMERGENCY"
+    },
+    {
+        "AMOUNT": 13000,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "PERSONAL",
+        "REASON": "LAURA'S PIN"
+    },
+    {
+        "AMOUNT": 20000,
+        "TYPE": "INCOME",
+        "CATEGORY": "MINECRAFT",
+        "NOTE": "SKINS"
+    },
+    {
+        "AMOUNT": 15000,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "FOOD",
+        "NOTE": "SALCHIPAPA"
+    },
+    {
+        "AMOUNT": 2000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "FOOD",
+        "NOTE": null
+    },
+    {
+        "AMOUNT": 20000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "FOOD",
+        "NOTE": null
+    },
+    {
+        "AMOUNT": 20000.0,
+        "TYPE": "SAVINGS",
+        "CATEGORY": "CAR",
+        "NOTE": null
+    }
+]

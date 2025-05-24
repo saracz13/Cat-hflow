@@ -9,3 +9,6 @@
 
 [PRO-003] 02/05/2025 10:48 AM Changes:
 - Change `main.py`details
+
+[PRO-004] 21/05/2025 6:54 AM Changes:
+- Create `login`,`history`,`categories`,`reports`,`temp`,`assets`
