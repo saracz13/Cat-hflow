@@ -13,17 +13,25 @@ def balance():
     return total_balance
    
 
-def new_transaction(amount,m_type,category=None,goal=None,note=None): 
+def new_transaction(amount,total_balance,m_type,category=None,fund=None,note=None):
+    if amount <= 0:
+        return {"Type": "ERROR",
+                "Message": "Invalid transaction amount",
+                "Status code": 400}
+     
     if m_type not in ["INCOME","EXPENDITURE","SAVINGS"]:
         return {"Type": "ERROR",
                 "Message": "Invalid transaction type",
                 "Status code": 400}
+    
+    if m_type in ["EXPENDITURE","SAVINGS"]:
+        if amount > total_balance:
+            return {"Type": "ERROR",
+                    "Message": "Invalid transaction. Check your total balance",
+                    "Status code": 400}
    
     # AQUI VALIDAR CATEGORIA CON SERVICE DE CATEGORIA
-    if amount <= 0:
-      return {"Type": "ERROR",
-                "Message": "Invalid transaction amount",
-                "Status code": 400}
     
-    transactions_repository.append_transaction(amount,m_type,category,goal,note)
+    
+    transactions_repository.append_transaction(amount,m_type,category,fund,note)
    

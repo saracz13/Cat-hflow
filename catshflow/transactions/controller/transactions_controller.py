@@ -12,5 +12,5 @@ def transaction():
         note = input("Note:")
         transactions_service.new_transaction(amount,m_type,category,note)
     elif m_type == "SAVINGS":
-        goal = input("Goal:").upper()
-        transactions_service.new_transaction(amount,m_type,goal)
+        fund = input("Fund:").upper()
+        transactions_service.new_transaction(amount,m_type,fund)

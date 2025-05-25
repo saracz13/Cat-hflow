@@ -18,8 +18,7 @@ def main():
         elif option == 0:
             flag = False
         else:
-            print("Wrong option")
-
+            print("Wrong option, choose one of the displayed options!")
         print()
 
 main()

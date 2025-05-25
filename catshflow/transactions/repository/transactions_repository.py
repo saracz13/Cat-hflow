@@ -1,28 +1,30 @@
 import json
-from catshflow.transactions.constant.transactions_constant import MOVEMENTS_FILE
+from catshflow.transactions.constant.transactions_constant import TRANSACTIONS_FILE
+
 
 def reader_json():
-    with open(MOVEMENTS_FILE) as f:
+    with open(TRANSACTIONS_FILE) as f:
         response = json.load(f)        
     return response
 
 def writer_json(transaction):
-    with open(MOVEMENTS_FILE, "r") as f:
+    with open(TRANSACTIONS_FILE, "r") as f:
         data = json.load(f)
     data.append(transaction)
-    with open(MOVEMENTS_FILE, "w") as f:
+    with open(TRANSACTIONS_FILE, "w") as f:
         json.dump(data, f, indent=4)
 
-def append_transaction(amount,m_type,category=None,goal=None,note=None):
+def append_transaction(amount,m_type,category=None,fund=None,note=None):
     if category:
         transaction = {"AMOUNT":amount,
                         "TYPE":m_type,
                         "CATEGORY":category,
                         "NOTE": note}
         writer_json(transaction)
-    elif goal:
+    elif fund:
         transaction = {"AMOUNT":amount,
                         "TYPE":m_type,
-                        "GOAL":goal}
+                        "FUND":fund}
         writer_json(transaction)
     return transaction
+
