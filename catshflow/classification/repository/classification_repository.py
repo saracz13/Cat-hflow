@@ -11,7 +11,7 @@ def reader_txt():
 
 def add_category(new_category):
     with open(CATEGORIES_FILE, "a") as f:
-        f.write(new_category + '\n')
+        f.write(new_category + "\n")
     return CATEGORIES_FILE
 
 
@@ -20,10 +20,10 @@ def eliminate_category(unwated_category):
         response = []
         for line in f:
             if unwated_category not in line:
-                response.append(line.strip())        
+                response.append(line)      
     with open(CATEGORIES_FILE, "w") as f:
         for line in response:
-            f.write(response + '\n')
+            f.write(line)
     return CATEGORIES_FILE
 
 
@@ -32,12 +32,12 @@ def rename_category(target_category,renamed_category):
         response = []
         for line in f:
             if target_category in line:
-                response.append(renamed_category) 
+                response.append(renamed_category+ "\n") 
             else:
                 response.append(line)           
     with open(CATEGORIES_FILE, "w") as f:
         for line in response:
-            f.write(response + '\n')
+            f.write(line)
     return CATEGORIES_FILE
     
 

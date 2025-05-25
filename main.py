@@ -16,6 +16,8 @@ def main():
         option = int(input("Option:"))
         if option == 1:
             transactions_controller.transaction()
+        elif option == 2:
+            classification_controller.classifications()
         elif option == 0:
             flag = False
         else:

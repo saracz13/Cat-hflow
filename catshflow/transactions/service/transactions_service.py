@@ -46,13 +46,19 @@ def new_transaction(amount,m_type,total_balance,category=None,fund=None,note=Non
     
     if m_type == "WITHDRAWAL":
         funds = classification_repository.reader_csv()
-        for fund in funds:
-            if amount > float(fund["AMOUNT"]):
-                return {"Type": "ERROR", 
-                        "Message": "Insufficient fund amount", 
-                        "Status code": 400}
+        for data in funds:
+            if data["FUND"] == fund:
+                if amount > float(data["AMOUNT"]):
+                    return {"Type": "ERROR", 
+                            "Message": "Insufficient fund amount", 
+                            "Status code": 400}
+                
+    if m_type == "WITHDRAWAL":
+        if not note:
+            return {"Type": "ERROR", 
+                            "Message": "Justification required", 
+                            "Status code": 400}
     
-
     if m_type in ["EXPENDITURE","SAVINGS"]:
         if amount > total_balance:
             return {"Type": "ERROR",

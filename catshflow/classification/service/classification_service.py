@@ -1,5 +1,4 @@
 from catshflow.classification.repository import classification_repository
-from catshflow.transactions.repository import transactions_repository
 
 
 def new_categories(new_category):
@@ -17,7 +16,7 @@ def new_categories(new_category):
             "Status code": 200
             }
 
-def eliminate_categories(categories,unwanted_category):
+def eliminate_categories(unwanted_category):
     categories = classification_repository.reader_txt()
     if unwanted_category not in categories:
         return {
@@ -32,7 +31,7 @@ def eliminate_categories(categories,unwanted_category):
             "Status code": 200
             }
 
-def rename_categories(categories,target_category,renamed_category):
+def rename_categories(target_category,renamed_category):
     categories = classification_repository.reader_txt()
     if target_category not in categories:
         return {
@@ -70,7 +69,7 @@ def add_funds(new_fund):
             }
 
 
-def eliminate_funds(funds,unwanted_fund):
+def eliminate_funds(unwanted_fund):
     funds = classification_repository.reader_csv()
     for fund in funds:
         if unwanted_fund["FUND"] not in fund["FUND"]:
@@ -86,21 +85,32 @@ def eliminate_funds(funds,unwanted_fund):
             "Status code": 200
             }
 
-def rename_funds(funds,target_fund,renamed_fund):
+def rename_funds(target_fund,renamed_fund):
     funds = classification_repository.reader_csv()
+    target_exists = False
+    renamed_exists = False
+
     for fund in funds:
-        if target_fund["FUND"] not in fund["FUND"]:
-            return {
-                    "Type": "ERROR",
-                    "Message": "This fund doesn't exists",
-                    "Status code": 400
-                    }
-        if renamed_fund["FUND"] in fund["FUND"]:
-            return {
-                    "Type": "ERROR",
-                    "Message": "This fund already exists",
-                    "Status code": 400
-                    }
+        fund_name = fund["FUND"]
+        if fund_name == target_fund:
+            target_exists = True
+        if fund_name == renamed_fund:
+            renamed_exists = True
+
+    if not target_exists: 
+                return {
+                        "Type": "ERROR",
+                        "Message": "This fund doesn't exists",
+                        "Status code": 400
+                        }
+    
+    if renamed_exists:
+                return {
+                        "Type": "ERROR",
+                        "Message": "This fund already exists",
+                        "Status code": 400
+                        }
+    
     classification_repository.renaming_funds(target_fund,renamed_fund)
     return {
             "Type": "VALID",

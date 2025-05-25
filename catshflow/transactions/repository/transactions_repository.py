@@ -11,7 +11,7 @@ def writer_json(transaction):
     with open(TRANSACTIONS_FILE, "r") as f:
         data = json.load(f)
     data.append(transaction)
-    with open(TRANSACTIONS_FILE, "w") as f:
+    with open(TRANSACTIONS_FILE , "w") as f:
         json.dump(data, f, indent=4)
 
 def append_transaction(amount,m_type,category=None,fund=None,note=None):
@@ -22,9 +22,15 @@ def append_transaction(amount,m_type,category=None,fund=None,note=None):
                         "NOTE": note}
         writer_json(transaction)
     elif fund:
-        transaction = {"AMOUNT":amount,
-                        "TYPE":m_type,
-                        "FUND":fund}
+        if note:
+            transaction = {"AMOUNT":amount,
+                            "TYPE":m_type,
+                            "FUND":fund,
+                            "NOTE":note}
+        else:
+            transaction = {"AMOUNT":amount,
+                            "TYPE":m_type,
+                            "FUND":fund}
         writer_json(transaction)
     return transaction
 
