@@ -1,4 +1,5 @@
 from catshflow.transactions.service import transactions_service
+from catshflow.classification.repository import classification_repository
 
 def balance_format():
     balance = transactions_service.balance()
@@ -6,11 +7,29 @@ def balance_format():
                                  
 def transaction():
     amount = float(input("Amount:"))
-    m_type = input("Transaction type:").upper()
+    print(["INCOME[1]","EXPENDITURE[2]","SAVINGS[3]","WITHDRAW[4]"])
+    m_type = input("Transaction type:").strip().upper()
+    total_balance = transactions_service.balance()
+    result = None
     if m_type in ["EXPENDITURE","INCOME"]:
+        print(classification_repository.reader_txt(),"OTHER")
         category = input("Category:").upper()
         note = input("Note:")
-        transactions_service.new_transaction(amount,m_type,category,note)
-    elif m_type == "SAVINGS":
+        result = transactions_service.new_transaction(
+            amount = amount,
+            m_type = m_type,
+            total_balance = total_balance,
+            category = category,
+            note = note)
+    elif m_type in ["SAVINGS","WITHDRAWAL"]:
+        print(classification_repository.reader_csv())
         fund = input("Fund:").upper()
-        transactions_service.new_transaction(amount,m_type,fund)
+        result= transactions_service.new_transaction(
+            amount = amount,
+            m_type = m_type,
+            total_balance = total_balance,
+            fund = fund)
+        for data in classification_repository.reader_csv():
+            if data["FUND"] == fund:
+                print(data)
+    print(result)

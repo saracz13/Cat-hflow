@@ -75,5 +75,49 @@
         "TYPE": "SAVINGS",
         "CATEGORY": "CAR",
         "NOTE": null
+    },
+    {
+        "AMOUNT": 20000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "WORK",
+        "NOTE": "EXTRA SHIFT"
+    },
+    {
+        "AMOUNT": 200000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "WORK",
+        "NOTE": null
+    },
+    {
+        "AMOUNT": 200000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "WORK",
+        "NOTE": "weekly payment"
+    },
+    {
+        "AMOUNT": 20000.0,
+        "TYPE": "SAVINGS",
+        "FUND": "EMERGENCY"
+    },
+    {
+        "AMOUNT": 20000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "FOOD",
+        "NOTE": "lunch"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "SAVINGS",
+        "FUND": "CAR"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "SAVINGS",
+        "FUND": "EMERGENCY"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "SAVINGS",
+        "FUND": "CAR"
     }
 ]

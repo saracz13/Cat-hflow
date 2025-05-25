@@ -11,6 +11,11 @@ def new_categories(new_category):
                 "Status code": 400
                 }
     classification_repository.add_category(new_category)
+    return {
+            "Type": "VALID",
+            "Message": "Valid category addition",
+            "Status code": 200
+            }
 
 def eliminate_categories(categories,unwanted_category):
     categories = classification_repository.reader_txt()
@@ -21,6 +26,11 @@ def eliminate_categories(categories,unwanted_category):
                 "Status code": 400
                 }
     classification_repository.eliminate_category(unwanted_category)
+    return {
+            "Type": "VALID",
+            "Message": "Valid categories modification",
+            "Status code": 200
+            }
 
 def rename_categories(categories,target_category,renamed_category):
     categories = classification_repository.reader_txt()
@@ -37,6 +47,11 @@ def rename_categories(categories,target_category,renamed_category):
                 "Status code": 400
                 }
     classification_repository.rename_category(target_category,renamed_category)
+    return {
+            "Type": "VALID",
+            "Message": "Valid category modification",
+            "Status code": 200
+            }
 
 def add_funds(new_fund):
     funds = classification_repository.reader_csv()
@@ -48,6 +63,11 @@ def add_funds(new_fund):
                     "Status code": 400
                     }
     classification_repository.adding_funds(new_fund)
+    return {
+            "Type": "VALID",
+            "Message": "Valid fund addition",
+            "Status code": 200
+            }
 
 
 def eliminate_funds(funds,unwanted_fund):
@@ -60,6 +80,11 @@ def eliminate_funds(funds,unwanted_fund):
                     "Status code": 400
                     }
     classification_repository.eliminating_funds(unwanted_fund)
+    return {
+            "Type": "VALID",
+            "Message": "Valid funds modification",
+            "Status code": 200
+            }
 
 def rename_funds(funds,target_fund,renamed_fund):
     funds = classification_repository.reader_csv()
@@ -77,23 +102,10 @@ def rename_funds(funds,target_fund,renamed_fund):
                     "Status code": 400
                     }
     classification_repository.renaming_funds(target_fund,renamed_fund)
+    return {
+            "Type": "VALID",
+            "Message": "Valid fund modification",
+            "Status code": 200
+            }
 
-def extract_funds(funds,target_fund,amount,reason):
-    funds = classification_repository.reader_csv()
-    for fund in funds:
-        if target_fund["FUND"] not in fund["FUND"]:
-            return {
-                    "Type": "ERROR",
-                    "Message": "This fund doesn't exists",
-                    "Status code": 400
-                    }
-        if target_fund["FUND"] == fund["FUND"]:
-            if target_fund["AMOUNT"] > fund["AMOUNT"]:
-                return {
-                        "Type": "ERROR",
-                        "Message": "You don't have enough money on this fund",
-                        "Status code": 400
-                        }
-    classification_repository.extracting_funds(target_fund,amount)
-    transactions_repository.append_transaction(target_fund,amount,reason)
-    return funds
+    

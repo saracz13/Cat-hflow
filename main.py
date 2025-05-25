@@ -1,4 +1,5 @@
 from catshflow.transactions.controller import transactions_controller
+from catshflow.classification.controller import classification_controller
 def main():
     menu = """_______________
 0. Exit
