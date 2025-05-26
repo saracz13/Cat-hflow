@@ -55,7 +55,7 @@ def rename_categories(target_category,renamed_category):
 def add_funds(new_fund):
     funds = classification_repository.reader_csv()
     for fund in funds:
-        if fund["FUND"] == new_fund["FUND"]:
+        if fund["FUND"] == new_fund:
             return {
                     "Type": "ERROR",
                     "Message": "This fund already exists",
@@ -71,11 +71,14 @@ def add_funds(new_fund):
 
 def eliminate_funds(unwanted_fund):
     funds = classification_repository.reader_csv()
+    found_fund = False
     for fund in funds:
-        if unwanted_fund["FUND"] not in fund["FUND"]:
+        if fund["FUND"] == unwanted_fund:
+            found_fund = True
+        if not found_fund:
             return {
                     "Type": "ERROR",
-                    "Message": "This fund already exists",
+                    "Message": "This fund doesn't exists",
                     "Status code": 400
                     }
     classification_repository.eliminating_funds(unwanted_fund)
@@ -91,10 +94,9 @@ def rename_funds(target_fund,renamed_fund):
     renamed_exists = False
 
     for fund in funds:
-        fund_name = fund["FUND"]
-        if fund_name == target_fund:
+        if fund["FUND"] == target_fund:
             target_exists = True
-        if fund_name == renamed_fund:
+        if fund["FUND"] == renamed_fund:
             renamed_exists = True
 
     if not target_exists: 

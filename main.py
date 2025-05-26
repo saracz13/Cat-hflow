@@ -4,7 +4,7 @@ def main():
     menu = """_______________
 0. Exit
 1. Transactions
-2. Categories
+2. Classification
 3. History
 4. Reports
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"""
@@ -21,7 +21,7 @@ def main():
         elif option == 0:
             flag = False
         else:
-            print("Wrong option, choose one of the displayed options!")
+            print("Please choose one of the displayed options!")
         print()
 
 main()

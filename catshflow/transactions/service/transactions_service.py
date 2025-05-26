@@ -26,12 +26,11 @@ def new_transaction(amount,m_type,total_balance,category=None,fund=None,note=Non
     
 
     if m_type in ["INCOME", "EXPENDITURE"]:
-        for data in classification_repository.reader_txt():
-            if category not in data:
-                if category != "OTHER":
-                    return {"Type": "ERROR", 
-                            "Message": "Category doesn't exist", 
-                            "Status code": 400}
+        categories = classification_repository.reader_txt()
+        if category not in categories and category != "OTHER":
+            return {"Type": "ERROR", 
+                    "Message": "Category doesn't exist", 
+                    "Status code": 400}
     
     if m_type in ["SAVINGS", "WITHDRAWAL"]:
         fund_exist = False

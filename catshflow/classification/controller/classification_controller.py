@@ -14,7 +14,7 @@ def classifications():
         action = input("Which action do you want to perform? Enter the corresponding number:")
         result = None
         if action == "1":
-            new_category = input("Which category would you like to add?").strip().upper()
+            new_category = input("How would you like to name your new category?").strip().upper()
             result = classification_service.new_categories(new_category)
             print(classification_repository.reader_txt())
         elif action == "2":
@@ -28,4 +28,37 @@ def classifications():
             renamed_category = input("How would you like to rename your category:").strip().upper()
             result = classification_service.rename_categories(target_category,renamed_category)
             print(classification_repository.reader_txt())
-        print(result)
+        else:
+            print("Please choose one of the displayed options!")
+            return
+    elif selection == "2":
+        print("""
+              1. Open a new fund 
+              2. Close an existing fund
+              3. Rename an existing fund
+              """
+        )
+        action = input("Which action do you want to perform? Enter the corresponding number:")
+        result = None
+        if action == "1": 
+            new_fund = input("How would you like to name your new fund?").strip().upper()
+            result = classification_service.add_funds(new_fund)
+            print(classification_repository.reader_csv())
+        elif action == "2":
+            print(classification_repository.reader_csv())
+            unwanted_fund = input("Which fund would you like to close?").strip().upper()
+            result = classification_service.eliminate_funds(unwanted_fund)
+            print(classification_repository.reader_csv())
+        elif action == "3":
+            print(classification_repository.reader_csv())
+            target_fund = input("Which fund would you like to modify?").strip().upper()
+            renamed_fund = input("How would you like to rename it?").strip().upper()
+            result = classification_service.rename_funds(target_fund,renamed_fund)
+            print(classification_repository.reader_csv())
+        else:
+            print("Please choose one of the displayed options!")
+            return
+    else:
+        print("Please choose one of the displayed options!")
+        return
+    print(result)

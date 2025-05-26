@@ -46,5 +46,6 @@ def transaction():
         for data in classification_repository.reader_csv():
             if data["FUND"] == fund:
                 print(data)
-                print("Your piggy bank cried a little… but it understands. You'll refill it soon!")
+                if result["Status code"] == 200:
+                    print("So sorry to hear that. You'll refill it soon!")
     print(result)

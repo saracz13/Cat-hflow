@@ -142,5 +142,28 @@
         "TYPE": "WITHDRAWAL",
         "FUND": "EMERGENCY",
         "NOTE": "friend's surgery"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "FOOD",
+        "NOTE": "lunch"
+    },
+    {
+        "AMOUNT": 20000.0,
+        "TYPE": "WITHDRAWAL",
+        "FUND": "EMERGENCY",
+        "NOTE": "pet surgery"
+    },
+    {
+        "AMOUNT": 50000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "FOOD",
+        "NOTE": "monthly groseries"
+    },
+    {
+        "AMOUNT": 100000.0,
+        "TYPE": "SAVINGS",
+        "FUND": "ITALY"
     }
 ]

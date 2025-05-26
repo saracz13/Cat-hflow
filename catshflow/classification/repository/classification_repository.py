@@ -56,7 +56,7 @@ def adding_funds(new_fund):
         response = []
         for line in reader:
             response.append(line)
-    response.append(new_fund)
+    response.append({"FUND": new_fund, "AMOUNT": "0"})
     with open(FUNDS_FILE, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
         writer.writeheader()
@@ -70,13 +70,14 @@ def eliminating_funds(unwanted_fund):
         response = []
         for line in reader:
             response.append(line)
-        for line in response:
-            if line["FUND"] == unwanted_fund["FUND"]:
-                response.remove(line)
+    filtered_response = []
+    for line in response:
+        if line["FUND"] != unwanted_fund:
+            filtered_response.append(line)
     with open(FUNDS_FILE, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
         writer.writeheader()
-        writer.writerows(response)
+        writer.writerows(filtered_response)
     return FUNDS_FILE
 
 
@@ -85,10 +86,9 @@ def renaming_funds(target_fund,renamed_fund):
         reader = csv.DictReader(f)
         response = []
         for line in reader:
+            if line["FUND"] == target_fund:
+                line["FUND"] = renamed_fund
             response.append(line)
-        for line in response:
-            if line["FUND"] == target_fund["FUND"]:
-                line["FUND"] = renamed_fund["FUND"]
     with open(FUNDS_FILE, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
         writer.writeheader()
