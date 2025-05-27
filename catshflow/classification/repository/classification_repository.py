@@ -1,127 +1,99 @@
 import csv
 from catshflow.classification.constant.classification_constant import FUNDS_FILE,CATEGORIES_FILE
 
-def reader_txt():
-    with open(CATEGORIES_FILE) as f:
-        response = []
-        for line in f.readlines():
-            response.append(line.strip())            
+def reader_categories():
+    response = []
+    with open(CATEGORIES_FILE, newline="") as f:
+        reader = csv.DictReader(f)
+        for line in reader:
+            response.append(line) 
     return response
 
+def reader_funds():
+    response = []
+    with open(FUNDS_FILE, newline="") as f:
+        reader = csv.DictReader(f)
+        for line in reader:
+            response.append(line)
+    return response
 
-def add_category(new_category):
-    with open(CATEGORIES_FILE, "a") as f:
-        f.write(new_category + "\n")
+def add_category(new_category,c_type):
+    with open(CATEGORIES_FILE, "a", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([new_category, c_type])
     return CATEGORIES_FILE
 
 
-def eliminate_category(unwated_category):
-    with open(CATEGORIES_FILE) as f:
-        response = []
-        for line in f:
-            if unwated_category not in line:
-                response.append(line)      
-    with open(CATEGORIES_FILE, "w") as f:
-        for line in response:
-            f.write(line)
+def eliminate_category(unwanted_category):
+    categories = reader_categories()
+    remove_category = categories[int(unwanted_category)]
+    updated_categories = []
+    for data in categories:
+        if data != remove_category:
+            updated_categories.append(data)     
+    
+    with open(CATEGORIES_FILE, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["CATEGORY", "TYPE"])
+        writer.writeheader()
+        writer.writerows(updated_categories)
     return CATEGORIES_FILE
 
 
 def rename_category(target_category,renamed_category):
-    with open(CATEGORIES_FILE) as f:
-        response = []
-        for line in f:
-            if target_category in line:
-                response.append(renamed_category+ "\n") 
-            else:
-                response.append(line)           
-    with open(CATEGORIES_FILE, "w") as f:
-        for line in response:
-            f.write(line)
+    categories = reader_categories()
+    categories[int(target_category)]["CATEGORY"] = renamed_category
+    with open(CATEGORIES_FILE, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["CATEGORY", "TYPE"])
+        writer.writeheader()
+        writer.writerows(categories)
     return CATEGORIES_FILE
     
 
-def reader_csv():
-    with open(FUNDS_FILE,"r") as f:
-        reader = csv.DictReader(f)
-        response = []
-        for line in reader:
-            response.append(line)
-    return response
-
-
 def adding_funds(new_fund):
-    with open(FUNDS_FILE,"r") as f:
-        reader = csv.DictReader(f)
-        response = []
-        for line in reader:
-            response.append(line)
-    response.append({"FUND": new_fund, "AMOUNT": "0"})
-    with open(FUNDS_FILE, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
-        writer.writeheader()
-        writer.writerows(response)
+    with open(FUNDS_FILE, "a", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([new_fund, 0])
     return FUNDS_FILE
 
 
 def eliminating_funds(unwanted_fund):
-    with open(FUNDS_FILE,"r") as f:
-        reader = csv.DictReader(f)
-        response = []
-        for line in reader:
-            response.append(line)
-    filtered_response = []
-    for line in response:
-        if line["FUND"] != unwanted_fund:
-            filtered_response.append(line)
+    funds = reader_funds()
+    remove_fund = funds[int(unwanted_fund)]
+    updated_funds = []
+    for data in funds:
+        if data != remove_fund:
+            updated_funds.append(data)     
     with open(FUNDS_FILE, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
         writer.writeheader()
-        writer.writerows(filtered_response)
+        writer.writerows(updated_funds)
     return FUNDS_FILE
 
 
 def renaming_funds(target_fund,renamed_fund):
-    with open(FUNDS_FILE,"r") as f:
-        reader = csv.DictReader(f)
-        response = []
-        for line in reader:
-            if line["FUND"] == target_fund:
-                line["FUND"] = renamed_fund
-            response.append(line)
+    funds = reader_funds()
+    funds[int(target_fund)]["FUND"] = renamed_fund
     with open(FUNDS_FILE, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
         writer.writeheader()
-        writer.writerows(response)
+        writer.writerows(funds)
     return FUNDS_FILE
 
 
 def decrease_fund(fund,amount):
-    with open(FUNDS_FILE,"r") as f:
-        reader = csv.DictReader(f)
-        response = []
-        for line in reader:
-            response.append(line)
-        for line in response:
-            if line["FUND"] == fund:
-                line["AMOUNT"] = float(float(line["AMOUNT"]) - float(amount))
+    funds = reader_funds()
+    funds[int(fund)]["AMOUNT"] = str(float(funds[int(fund)]["AMOUNT"]) - float(amount))
     with open(FUNDS_FILE, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
         writer.writeheader()
-        writer.writerows(response)
+        writer.writerows(funds)
     return FUNDS_FILE
 
 def increase_fund(fund, amount):
-    with open(FUNDS_FILE,"r") as f:
-        reader = csv.DictReader(f)
-        response = []
-        for line in reader:
-            response.append(line)
-        for line in response:
-            if line["FUND"] == fund:
-                line["AMOUNT"] = float(float(line["AMOUNT"]) + float(amount))
+    funds = reader_funds()
+    funds[int(fund)]["AMOUNT"] = str(float(funds[int(fund)]["AMOUNT"]) + float(amount))
     with open(FUNDS_FILE, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["FUND", "AMOUNT"])
         writer.writeheader()
-        writer.writerows(response)
+        writer.writerows(funds)
     return FUNDS_FILE

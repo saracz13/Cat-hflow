@@ -1,114 +1,57 @@
 [
     {
-        "AMOUNT": 500000,
-        "TYPE": "INCOME",
-        "CATEGORY": "UNIVERSITY",
-        "REASON": "SCHOLARSHIP DEPOSIT"
-    },
-    {
-        "AMOUNT": 120000,
-        "TYPE": "EXPENDITURE",
-        "CATEGORY": "FOOD",
-        "REASON": "GROCERIES AT THE SUPERMARKET"
-    },
-    {
-        "AMOUNT": 60000,
-        "TYPE": "EXPENDITURE",
-        "CATEGORY": "PERSONAL",
-        "REASON": "GYM MEMBERSHIP"
-    },
-    {
-        "AMOUNT": 20000,
-        "TYPE": "INCOME",
-        "CATEGORY": "FAMILY",
-        "REASON": "PARENTS' SUPPORT"
-    },
-    {
-        "AMOUNT": 15000,
-        "TYPE": "EXPENDITURE",
-        "CATEGORY": "UNIVERSITY",
-        "REASON": "BOOKS AND MATERIALS"
-    },
-    {
-        "AMOUNT": 10000,
-        "TYPE": "SAVINGS",
-        "GOAL": "CAR"
-    },
-    {
-        "AMOUNT": 3000,
-        "TYPE": "INCOME",
-        "CATEGORY": "PERSONAL",
-        "REASON": "EMERGENCY"
-    },
-    {
-        "AMOUNT": 13000,
-        "TYPE": "EXPENDITURE",
-        "CATEGORY": "PERSONAL",
-        "REASON": "LAURA'S PIN"
-    },
-    {
-        "AMOUNT": 20000,
-        "TYPE": "INCOME",
-        "CATEGORY": "MINECRAFT",
-        "NOTE": "SKINS"
-    },
-    {
-        "AMOUNT": 15000,
-        "TYPE": "EXPENDITURE",
-        "CATEGORY": "FOOD",
-        "NOTE": "SALCHIPAPA"
-    },
-    {
-        "AMOUNT": 2000.0,
-        "TYPE": "EXPENDITURE",
-        "CATEGORY": "FOOD",
-        "NOTE": null
-    },
-    {
         "AMOUNT": 20000.0,
         "TYPE": "EXPENDITURE",
         "CATEGORY": "FOOD",
-        "NOTE": null
+        "NOTE": null,
+        "DATE": "2025-05-25T10:29:04.337742"
     },
     {
         "AMOUNT": 20000.0,
         "TYPE": "SAVINGS",
         "CATEGORY": "CAR",
-        "NOTE": null
+        "NOTE": null,
+        "DATE": "2025-05-25T10:29:04.337742"
     },
     {
         "AMOUNT": 20000.0,
         "TYPE": "INCOME",
         "CATEGORY": "WORK",
-        "NOTE": "EXTRA SHIFT"
+        "NOTE": "EXTRA SHIFT",
+        "DATE": "2025-05-25T23:02:04.337742"
     },
     {
         "AMOUNT": 200000.0,
         "TYPE": "INCOME",
         "CATEGORY": "WORK",
-        "NOTE": null
+        "NOTE": null,
+        "DATE": "2025-05-25T10:29:04.337742"
     },
     {
         "AMOUNT": 200000.0,
         "TYPE": "INCOME",
         "CATEGORY": "WORK",
-        "NOTE": "weekly payment"
+        "NOTE": "weekly payment",
+        "DATE": "2025-05-25T10:29:04.337742"
     },
     {
         "AMOUNT": 20000.0,
         "TYPE": "SAVINGS",
-        "FUND": "EMERGENCY"
+        "FUND": "EMERGENCY",
+        "DATE": "2025-05-25T10:29:04.337742"
     },
     {
         "AMOUNT": 20000.0,
         "TYPE": "EXPENDITURE",
         "CATEGORY": "FOOD",
-        "NOTE": "lunch"
+        "NOTE": "lunch",
+        "DATE": "2025-05-25T10:29:04.337742"
     },
     {
         "AMOUNT": 30000.0,
         "TYPE": "SAVINGS",
-        "FUND": "CAR"
+        "FUND": "CAR",
+        "DATE": "2025-05-25T14:39:04.337742"
     },
     {
         "AMOUNT": 30000.0,
@@ -118,52 +61,122 @@
     {
         "AMOUNT": 30000.0,
         "TYPE": "SAVINGS",
-        "FUND": "CAR"
+        "FUND": "CAR",
+        "DATE": "2025-05-25T14:29:04.337742"
     },
     {
         "AMOUNT": 100000.0,
         "TYPE": "EXPENDITURE",
         "CATEGORY": "CLOTHES",
-        "NOTE": "birthday outfit"
+        "NOTE": "birthday outfit",
+        "DATE": "2025-05-25T15:29:04.337742"
     },
     {
         "AMOUNT": 40000.0,
         "TYPE": "EXPENDITURE",
         "CATEGORY": "FAMILY",
-        "NOTE": "gift"
+        "NOTE": "gift",
+        "DATE": "2025-05-25T15:29:04.337742"
     },
     {
         "AMOUNT": 40000.0,
         "TYPE": "WITHDRAWAL",
-        "FUND": "CAR"
+        "FUND": "CAR",
+        "DATE": "2025-05-25T15:29:04.337742"
     },
     {
         "AMOUNT": 40000.0,
         "TYPE": "WITHDRAWAL",
         "FUND": "EMERGENCY",
-        "NOTE": "friend's surgery"
+        "NOTE": "friend's surgery",
+        "DATE": "2025-05-25T18:03:09.337742"
     },
     {
         "AMOUNT": 30000.0,
         "TYPE": "EXPENDITURE",
         "CATEGORY": "FOOD",
-        "NOTE": "lunch"
+        "NOTE": "lunch",
+        "DATE": "2025-05-25T19:30:08.337742"
     },
     {
         "AMOUNT": 20000.0,
         "TYPE": "WITHDRAWAL",
         "FUND": "EMERGENCY",
-        "NOTE": "pet surgery"
+        "NOTE": "pet surgery",
+        "DATE": "2025-05-25T19:52:04.337742"
     },
     {
         "AMOUNT": 50000.0,
         "TYPE": "INCOME",
         "CATEGORY": "FOOD",
-        "NOTE": "monthly groseries"
+        "NOTE": "monthly groseries",
+        "DATE": "2025-05-25T20:10:04.337742"
     },
     {
         "AMOUNT": 100000.0,
         "TYPE": "SAVINGS",
-        "FUND": "ITALY"
+        "FUND": "ITALY",
+        "DATE": "2025-05-25T20:29:04.337742"
+    },
+    {
+        "AMOUNT": 1500000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "WORK",
+        "NOTE": "week salary",
+        "DATE": "2025-05-25T22:29:04.337742"
+    },
+    {
+        "AMOUNT": 40000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "CLOTHES",
+        "NOTE": "dress",
+        "DATE": "2025-05-25T22:54:37.747783"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "TRANSPORT",
+        "NOTE": "uber",
+        "DATE": "2025-05-25T22:57:45.103546"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "FOOD",
+        "NOTE": "lunch",
+        "DATE": "2025-05-25T23:02:20.829925"
+    },
+    {
+        "AMOUNT": 5000.0,
+        "TYPE": "SAVINGS",
+        "FUND": "EMERGENCY",
+        "DATE": "2025-05-26T11:33:50.359068"
+    },
+    {
+        "AMOUNT": 50000.0,
+        "TYPE": "SAVINGS",
+        "FUND": "4",
+        "DATE": "2025-05-27T17:50:23.414025"
+    },
+    {
+        "AMOUNT": 50000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "CLOTHES",
+        "NOTE": "xmas outfit",
+        "DATE": "2025-05-27T17:58:27.699901"
+    },
+    {
+        "AMOUNT": 50000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "FAMILY",
+        "NOTE": "monthly payment",
+        "DATE": "2025-05-27T18:01:59.831028"
+    },
+    {
+        "AMOUNT": 500.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "TRANSPORT",
+        "NOTE": "taxi",
+        "DATE": "2025-05-27T18:03:05.330684"
     }
 ]

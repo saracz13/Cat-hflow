@@ -19,32 +19,30 @@ def new_transaction(amount,m_type,total_balance,category=None,fund=None,note=Non
                 "Status code": 400}
      
 
-    if m_type not in ["INCOME","EXPENDITURE","SAVINGS","WITHDRAWAL"]:
+    if m_type not in ["1","2","3","4"]:
         return {"Type": "ERROR",
                 "Message": "Invalid transaction type",
                 "Status code": 400}
     
 
-    if m_type in ["INCOME", "EXPENDITURE"]:
-        categories = classification_repository.reader_txt()
-        if category not in categories and category != "OTHER":
+    if m_type in ["1", "2"]:
+        categories = classification_repository.reader_categories()
+        if int(category) > len(categories):
             return {"Type": "ERROR", 
                     "Message": "Category doesn't exist", 
                     "Status code": 400}
     
-    if m_type in ["SAVINGS", "WITHDRAWAL"]:
-        fund_exist = False
-        for data in classification_repository.reader_csv():
-            if fund == data["FUND"]:
-                fund_exist = True
-        if not fund_exist:
-            if fund != "OTHER":
-                return {"Type": "ERROR", 
-                        "Message": "Fund doesn't exist", 
-                        "Status code": 400}
+    if m_type in ["3", "4"]:
+        funds = classification_repository.reader_funds()
+        if int(fund) > len(funds):
+            return {
+                    "Type": "ERROR",
+                    "Message": "This category doesn't exists",
+                    "Status code": 400
+                    }
     
-    if m_type == "WITHDRAWAL":
-        funds = classification_repository.reader_csv()
+    if m_type == "4":
+        funds = classification_repository.reader_funds()
         for data in funds:
             if data["FUND"] == fund:
                 if amount > float(data["AMOUNT"]):
@@ -52,21 +50,21 @@ def new_transaction(amount,m_type,total_balance,category=None,fund=None,note=Non
                             "Message": "Insufficient fund amount", 
                             "Status code": 400}
                 
-    if m_type == "WITHDRAWAL":
+    if m_type == "4":
         if not note:
             return {"Type": "ERROR", 
                             "Message": "Justification required", 
                             "Status code": 400}
     
-    if m_type in ["EXPENDITURE","SAVINGS"]:
+    if m_type in ["2","3"]:
         if amount > total_balance:
             return {"Type": "ERROR",
                     "Message": "Invalid transaction. Check your total balance",
                     "Status code": 400}
     
-    if m_type == "SAVINGS":
+    if m_type == "3":
         classification_repository.increase_fund(fund, amount)
-    elif m_type == "WITHDRAWAL":
+    elif m_type == "4":
         classification_repository.decrease_fund(fund, amount)
 
     

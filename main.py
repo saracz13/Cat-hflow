@@ -1,13 +1,19 @@
 from catshflow.transactions.controller import transactions_controller
 from catshflow.classification.controller import classification_controller
+from catshflow.history.controller import history_controller
+
 def main():
-    menu = """_______________
-0. Exit
-1. Transactions
-2. Classification
-3. History
-4. Reports
-‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"""
+    menu = ("""
+            ___________________
+                    MENU
+            ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+            0. Exit
+            1. Transactions
+            2. Classification
+            3. History
+            4. Reports
+            ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+            """)
     flag = True
     while flag:
         print()
@@ -18,6 +24,8 @@ def main():
             transactions_controller.transaction()
         elif option == 2:
             classification_controller.classifications()
+        elif option == 3:
+            history_controller.historial()
         elif option == 0:
             flag = False
         else:
