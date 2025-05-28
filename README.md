@@ -23,25 +23,32 @@
 - **Home and login page:** The home page should follow a standard app structure, allowing login via email and storing user data in files. This will allow management of multiple user profiles within the app.
 ## Technologies
 - Python 3.13
-- Figma
-- Visual Studio Code
+- Figma (for prototyping)
+- Visual Studio Code (IDE)
+- pandas (for data manipulation and display)
+- matplotlib (for charts and data visualization)
+- csv, json (for data storage)
+- Standard Python libraries (os, datetime, etc.)
+
 ## Prototype
-Figma link.
+- https://www.figma.com/proto/NFLU5D6VUGYUzjINJZoYLW/Cat-hFlow?node-id=0-1&t=nYMFuDWhvKTTmoZy-1
 ## How to run the app?
-1. Open the terminal and write: "python -B main.py"
-2. Choose one of the options displayed in the main menu
+1. Open the terminal in the project directory.
+2. Run the following command: python -B main.py
+3. Log in or register with your email and password.
+4. Choose one of the options displayed in the main menu to use the app features.
 ## Git commands to store the changes
-- `git status`: Check which files are pending to track
-- `git add`: Add the files to track
-- `git commit`: Create the message to create the log of tracked files
-- `git push origin`:Store the changes in github repository
+- `git status`: Check which files are pending to track.
+- `git add .`: Add all files to the staging area.
+- `git commit -m "your message"`: Create a commit with a message describing the changes.
+- `git push origin main`: Store the changes in the GitHub repository (replace `main` with your branch name if different).
 
 **Comands**
 
 ```
 git status
 git add .
-gid commit -m ""
+gid commit -m "message"
 git push
 ```
 

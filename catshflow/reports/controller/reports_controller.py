@@ -3,11 +3,23 @@ import matplotlib.dates as mpb_dates
 import numpy as np
 from catshflow.reports.service import reports_service
 
-def graphics():
+def graphics(email):
+    """
+    Displays and manages the reports menu for the user, allowing visualization of balance movements and classification statistics.
+
+    Args:
+        email (str): The user's email address.
+
+    Returns:
+        None
+    """
+
     print("""
           _____________________
-          1. Balance movements
-          2. Classification
+            📊 Reports Menu"
+          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+           1. Balance movements
+           2. Classification
           ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
           """
           )
@@ -15,7 +27,7 @@ def graphics():
     if graphic == "1":
         print("""
             _____________________  
-                FRECUENCY
+                ⏳FRECUENCY
             ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
             1. WEEKLY
             2. MONTHLY
@@ -25,7 +37,7 @@ def graphics():
             )
         frecuency = input("Enter the corresponding number:")
         if frecuency in ["1","2","3"]:
-            result,validation = reports_service.balance_movements(frecuency)
+            result,validation = reports_service.balance_movements(email,frecuency)
 
             fechas = []
             saldos = []
@@ -42,7 +54,7 @@ def graphics():
             ax.set_xlabel("Date")
             ax.set_ylabel("Total balance")
             ax.set_title("Daily balance evolution")
-            print(result)
+            print("\n📝 Results:\n", result)
             print(validation)
             plt.show()
         else:
@@ -51,34 +63,38 @@ def graphics():
                             "Status code": 400}
     elif graphic == "2":
         print("""
-              _______________
-              1. CATEGORIES
-              2. FUNDS
-              ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+              __________________
+              📂 Classification
+              ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                1. CATEGORIES
+                2. FUNDS
+              ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
               """)
         classification = input("Enter the corresponding number:")
         if classification == "1":
             print("""
-                ______________
+                _________________ 
+                💼 Category Type
+                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                 [1]INCOME
-                [2]EXPENDITURE
-                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                [2]EXPENSE
+                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                 """)
             transaction_type = input("Enter the corresponding number:")
             print("""
             _____________________  
-                FRECUENCY
+                ⏳FRECUENCY
             ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
             1. WEEKLY
             2. MONTHLY
             3. HALF-YEARLY          
             ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
             """
-            ) 
+            )
             frecuency = input("Enter the corresponding number:")
             if frecuency in ["1","2","3"]:
                 if transaction_type == "1":
-                    result,validation = reports_service.category_income(frecuency)
+                    result,validation = reports_service.category_income(email,frecuency)
 
                     labels = list(result.keys())   
                     values = list(result.values())        
@@ -96,11 +112,11 @@ def graphics():
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
 
-                    print(result)
+                    print("\n📝 Results:\n", result)
                     print(validation)
                     plt.show()
                 elif transaction_type == "2":
-                    result,validation = reports_service.category_expenditure(frecuency)
+                    result,validation = reports_service.category_expense(email,frecuency)
 
                     labels = list(result.keys())   
                     values = list(result.values())        
@@ -118,7 +134,7 @@ def graphics():
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
 
-                    print(result)
+                    print("\n📝 Results:\n", result)
                     print(validation)
                     plt.show()
                 else:
@@ -131,15 +147,17 @@ def graphics():
                             "Status code": 400}
         elif classification == "2":
             print("""
-                ______________
-                [1]SAVING
+                _________________ 
+                💰 Fund Type
+                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                [1]SAVINGS
                 [2]WITHDRAWAL
-                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                 """)
             transaction_type = input("Enter the corresponding number:")
             print("""
             _____________________  
-                FRECUENCY
+                ⏳FRECUENCY
             ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
             1. WEEKLY
             2. MONTHLY
@@ -150,7 +168,7 @@ def graphics():
             frecuency = input("Enter the corresponding number:")
             if frecuency in ["1","2","3"]:
                 if transaction_type == "1":
-                    result,validation = reports_service.fund_savings(frecuency)
+                    result,validation = reports_service.fund_savings(email,frecuency)
 
                     labels = list(result.keys())   
                     values = list(result.values())        
@@ -168,11 +186,11 @@ def graphics():
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
 
-                    print(result)
+                    print("\n📝 Results:\n", result)
                     print(validation)
                     plt.show()
                 elif transaction_type == "2":
-                    result,validation = reports_service.fund_withdrawal(frecuency)
+                    result,validation = reports_service.fund_withdrawal(email,frecuency)
 
                     labels = list(result.keys())   
                     values = list(result.values())        
@@ -190,7 +208,7 @@ def graphics():
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
 
-                    print(result)
+                    print("\n📝 Results:\n", result)
                     print(validation)
                     plt.show()
                 else:

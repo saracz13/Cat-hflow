@@ -1,8 +1,18 @@
 from datetime import datetime,timedelta
 from catshflow.reports.repository import reports_repository
 
-def balance_movements(frecuency):
-    transactions = reports_repository.reader_json()
+def balance_movements(email,frecuency):
+    """
+    Calculates the user's balance fluctuation history for a given frequency.
+
+    Args:
+        email (str): The user's email address.
+        frecuency (str): Frequency option ("1"=7 days, "2"=30 days, "3"=180 days).
+
+    Returns:
+        tuple: (list of (date, balance) tuples, validation dict)
+    """
+    transactions = reports_repository.reader_json(email)
     daily_balance = {}
     reference_date = datetime.now()
     if frecuency == "1":
@@ -25,7 +35,7 @@ def balance_movements(frecuency):
                 daily_balance[daily_date] = 0.0
             if data["TYPE"] in ["INCOME", "SAVINGS"]:
                 daily_balance[daily_date] += amount
-            elif data["TYPE"] in ["EXPENDITURE", "WITHDRAWAL"]:
+            elif data["TYPE"] in ["EXPENSE", "WITHDRAWAL"]:
                 daily_balance[daily_date] -= amount
 
     sorted_dates = sorted(daily_balance.keys())
@@ -42,8 +52,18 @@ def balance_movements(frecuency):
 
 
 
-def category_expenditure(frecuency):
-    transactions = reports_repository.reader_json()
+def category_expense(email,frecuency):
+    """
+    Calculates total expense per category for a given frequency.
+
+    Args:
+        email (str): The user's email address.
+        frecuency (str): Frequency option ("1"=7 days, "2"=30 days, "3"=180 days).
+
+    Returns:
+        tuple: (dict with category totals, validation dict)
+    """
+    transactions = reports_repository.reader_json(email)
     total_category = {}
     reference_date = datetime.now()
 
@@ -60,7 +80,7 @@ def category_expenditure(frecuency):
     for data in transactions:
         transaction_date = datetime.fromisoformat(data["DATE"])
         if start_date <= transaction_date <= reference_date:
-            if data["TYPE"] == "EXPENDITURE":
+            if data["TYPE"] == "EXPENSE":
                 category = data.get("CATEGORY")
                 amount_category = float(data.get("AMOUNT"))
                 if category in total_category:
@@ -72,8 +92,18 @@ def category_expenditure(frecuency):
                             "Status code": 200}
     
     
-def category_income(frecuency):
-    transactions = reports_repository.reader_json()
+def category_income(email,frecuency):
+    """
+    Calculates total income per category for a given frequency.
+
+    Args:
+        email (str): The user's email address.
+        frecuency (str): Frequency option ("1"=7 days, "2"=30 days, "3"=180 days).
+
+    Returns:
+        tuple: (dict with category totals, validation dict)
+    """
+    transactions = reports_repository.reader_json(email)
     total_category = {}
     reference_date = datetime.now()
 
@@ -101,8 +131,18 @@ def category_income(frecuency):
                             "Message": "Valid transaction distribution",
                             "Status code": 200}
 
-def fund_savings(frecuency):
-    transactions = reports_repository.reader_json()
+def fund_savings(email,frecuency):
+    """
+    Calculates total savings per fund for a given frequency.
+
+    Args:
+        email (str): The user's email address.
+        frecuency (str): Frequency option ("1"=7 days, "2"=30 days, "3"=180 days).
+
+    Returns:
+        tuple: (dict with fund totals, validation dict)
+    """
+    transactions = reports_repository.reader_json(email)
     total_funds = {}
     reference_date = datetime.now()
 
@@ -130,8 +170,18 @@ def fund_savings(frecuency):
                             "Message": "Valid transaction distribution",
                             "Status code": 200}
 
-def fund_withdrawal(frecuency):
-    transactions = reports_repository.reader_json()
+def fund_withdrawal(email,frecuency):
+    """
+    Calculates total withdrawals per fund for a given frequency.
+
+    Args:
+        email (str): The user's email address.
+        frecuency (str): Frequency option ("1"=7 days, "2"=30 days, "3"=180 days).
+
+    Returns:
+        tuple: (dict with fund totals, validation dict)
+    """
+    transactions = reports_repository.reader_json(email)
     total_funds = {}
     reference_date = datetime.now()
 

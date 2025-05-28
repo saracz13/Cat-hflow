@@ -1,0 +1,16 @@
+[
+    {
+        "AMOUNT": 1000000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "WORK",
+        "NOTE": "salary",
+        "DATE": "2025-05-28T14:06:09.509115"
+    },
+    {
+        "AMOUNT": 3000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "FAMILY",
+        "NOTE": "gift",
+        "DATE": "2025-05-28T15:48:12.192432"
+    }
+]
