@@ -1,6 +1,7 @@
 from catshflow.transactions.controller import transactions_controller
 from catshflow.classification.controller import classification_controller
 from catshflow.history.controller import history_controller
+from catshflow.reports.controller import reports_controller
 
 def main():
     menu = ("""
@@ -26,6 +27,8 @@ def main():
             classification_controller.classifications()
         elif option == 3:
             history_controller.historial()
+        elif option == 4:
+            reports_controller.graphics()
         elif option == 0:
             flag = False
         else:

@@ -9,7 +9,7 @@
     {
         "AMOUNT": 20000.0,
         "TYPE": "SAVINGS",
-        "CATEGORY": "CAR",
+        "FUND": "CAR",
         "NOTE": null,
         "DATE": "2025-05-25T10:29:04.337742"
     },
@@ -56,7 +56,29 @@
     {
         "AMOUNT": 30000.0,
         "TYPE": "SAVINGS",
-        "FUND": "EMERGENCY"
+        "FUND": "EMERGENCY",
+        "DATE": "2025-05-25T14:39:04.337742"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "INCOME",
+        "CATEGORY": "TRANSPORT",
+        "NOTE": "uber",
+        "DATE": "2025-02-25T22:57:45.103546"
+    },
+    {
+        "AMOUNT": 30000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "TRANSPORT",
+        "NOTE": "uber",
+        "DATE": "2025-02-25T22:57:45.103546"
+    },
+    {
+        "AMOUNT": 10000000.0,
+        "TYPE": "EXPENDITURE",
+        "CATEGORY": "TRANSPORT",
+        "NOTE": "uber",
+        "DATE": "2025-02-25T22:57:45.103546"
     },
     {
         "AMOUNT": 30000.0,
@@ -155,7 +177,7 @@
     {
         "AMOUNT": 50000.0,
         "TYPE": "SAVINGS",
-        "FUND": "4",
+        "FUND": "CAR",
         "DATE": "2025-05-27T17:50:23.414025"
     },
     {
