@@ -101,7 +101,7 @@ def main():
     new_user = saving_names(name, email, birthdate, gender, correct, users)
     
     if new_user is not None:
-        print(f"User registered. Birthdate: {new_user['Birthdate']}")
+        print(f"User registered. Birthdate: {new_user["Birthdate"]}")
 
 
 main()

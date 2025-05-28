@@ -32,11 +32,11 @@ def graphics():
             for item in result:
                 fechas.append(item[0])
                 saldos.append(item[1]) 
-            plt.style.use('_mpl-gallery')
+            plt.style.use("_mpl-gallery")
             fig, ax = plt.subplots()
-            ax.plot(fechas, saldos, marker='o', linestyle='-')
+            ax.plot(fechas, saldos, marker="o", linestyle="-")
 
-            ax.xaxis.set_major_formatter(mpb_dates.DateFormatter('%Y-%m-%d'))
+            ax.xaxis.set_major_formatter(mpb_dates.DateFormatter("%Y-%m-%d"))
             fig.autofmt_xdate()
 
             ax.set_xlabel("Date")
@@ -83,15 +83,15 @@ def graphics():
                     labels = list(result.keys())   
                     values = list(result.values())        
 
-                    plt.style.use('_mpl-gallery-nogrid')
+                    plt.style.use("_mpl-gallery-nogrid")
 
-                    colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, len(values)))
+                    colors = plt.get_cmap("Blues")(np.linspace(0.2, 0.7, len(values)))
 
                     fig, ax = plt.subplots()
                     ax.pie(values, colors=colors, radius=3, center=(4, 4),
                     wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
 
-                    ax.legend(labels, loc='center left', bbox_to_anchor=(1, 0.5))
+                    ax.legend(labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
@@ -105,15 +105,15 @@ def graphics():
                     labels = list(result.keys())   
                     values = list(result.values())        
 
-                    plt.style.use('_mpl-gallery-nogrid')
+                    plt.style.use("_mpl-gallery-nogrid")
 
-                    colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, len(values)))
+                    colors = plt.get_cmap("Blues")(np.linspace(0.2, 0.7, len(values)))
 
                     fig, ax = plt.subplots()
                     ax.pie(values, colors=colors, radius=3, center=(4, 4),
                     wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
 
-                    ax.legend(labels, loc='center left', bbox_to_anchor=(1, 0.5))
+                    ax.legend(labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
@@ -155,15 +155,15 @@ def graphics():
                     labels = list(result.keys())   
                     values = list(result.values())        
 
-                    plt.style.use('_mpl-gallery-nogrid')
+                    plt.style.use("_mpl-gallery-nogrid")
 
-                    colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, len(values)))
+                    colors = plt.get_cmap("Blues")(np.linspace(0.2, 0.7, len(values)))
 
                     fig, ax = plt.subplots()
                     ax.pie(values, colors=colors, radius=3, center=(4, 4),
                     wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
 
-                    ax.legend(labels, loc='center left', bbox_to_anchor=(1, 0.5))
+                    ax.legend(labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
@@ -177,15 +177,15 @@ def graphics():
                     labels = list(result.keys())   
                     values = list(result.values())        
 
-                    plt.style.use('_mpl-gallery-nogrid')
+                    plt.style.use("_mpl-gallery-nogrid")
 
-                    colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, len(values)))
+                    colors = plt.get_cmap("Blues")(np.linspace(0.2, 0.7, len(values)))
 
                     fig, ax = plt.subplots()
                     ax.pie(values, colors=colors, radius=3, center=(4, 4),
                     wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
 
-                    ax.legend(labels, loc='center left', bbox_to_anchor=(1, 0.5))
+                    ax.legend(labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
                     ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                     ylim=(0, 8), yticks=np.arange(1, 8))
